@@ -1,0 +1,10 @@
+-0777 -pe ' s/"([^"]|[^\\].)*"/CHAINE/gsm' q2
+
+#include <stdio.h>
+
+int main(int argc, char** argv)
+{
+	printf(CHAINE);
+	
+	return 0;
+}
