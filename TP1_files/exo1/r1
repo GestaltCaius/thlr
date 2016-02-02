@@ -1,0 +1,36 @@
+// Ma reponse : perl -0777 -pe ' s/{.*}/COMMENTAIRE/gsm' q1 
+
+COMMENTAIRE
+
+Unit Prime;
+
+Interface
+Function PrimeChk(Num: LongInt): Boolean;
+
+Implementation
+
+Function PrimeChk(Num: LongInt): Boolean;
+ Var x : LongInt;
+     i : Integer;
+ Const
+  y : Array[1..25] of Integer =
+  (2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97);
+
+
+ Begin
+  PrimeChk := True;
+  If Num = 1 Then Begin PrimeChk := False; Exit; End;
+
+  For i := 1 to 25 Do
+   If ( (Num mod y[i])=0 ) And (Num<>y[i]) Then
+     Begin PrimeChk := False; Exit; End;
+
+  x := 99;
+  While (Sqr(x) < Num) Do
+   Begin
+    x := x + 2;
+    If (Num mod x)=0 Then Begin PrimeChk:=False; Exit; End;
+   End;
+ End;
+
+End.
